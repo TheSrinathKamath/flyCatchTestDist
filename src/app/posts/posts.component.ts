@@ -42,6 +42,7 @@ export class PostsComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.isDataLoaded = false;
+    this.hasAPIFailed = false;
   }
 
   getPost(id: number) {
@@ -51,7 +52,8 @@ export class PostsComponent implements OnInit {
         this.isDataLoaded = true;
       },
         err => {
-          this.snackBar.open(err, 'OK', { duration: 3000 })
+          this.isDataLoaded = true; this.hasAPIFailed = true;
+          this.snackBar.open(err?.message, 'OK', { duration: 3000 })
         })
     )
   }
@@ -63,7 +65,7 @@ export class PostsComponent implements OnInit {
       },
         err => {
           this.isDataLoaded = true; this.hasAPIFailed = true;
-          this.snackBar.open(err, 'OK', { duration: 3000 })
+          this.snackBar.open(err?.message, 'OK', { duration: 3000 })
         })
     )
   }
