@@ -1,0 +1,43 @@
+@import '../../customStyles/palette.scss';
+
+.vh-80 {
+  height: 85vh;
+}
+
+.mat-card {
+  max-width: 400px;
+  margin: 5px;
+}
+
+.mat-card-title {
+  width: 300px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-card-image {
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.post-body {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  letter-spacing: 0.9px;
+  overflow: hidden;
+}
+
+.mat-header-image {
+  background-image: url('https://i.pravatar.cc/300');
+  background-size: cover;
+}
+
+a {
+  text-decoration: none !important;
+
+  &:hover {
+    color: $accent-color;
+  }
+}

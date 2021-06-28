@@ -1,0 +1,29 @@
+<section>
+  <app-spinner [isDataLoaded]=isDataLoaded></app-spinner>
+  <app-api-error [hasAPIFailed]=hasAPIFailed></app-api-error>
+
+  <cdk-virtual-scroll-viewport *ngIf="isDataLoaded && !hasAPIFailed" itemSize="10" class="vh-80 mt-5">
+    <div class="row justify-content-center">
+      <mat-card *cdkVirtualFor="let post of feed" class="mat-card">
+        <mat-card-header>
+          <div mat-card-avatar class="mat-header-image"></div>
+          <mat-card-title>
+            <a [routerLink]="['/posts', post.id]" title="{{post?.title|titlecase}}">{{post?.title|titlecase}}</a>
+          </mat-card-title>
+          <mat-card-subtitle>By User
+            #{{post?.userId}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://source.unsplash.com/random" alt="Post Image">
+        <mat-card-content>
+          <p class="post-body">
+            {{post?.body}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="goToPost(post.id)">VIEW</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</section>

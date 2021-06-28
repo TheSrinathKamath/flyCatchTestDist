@@ -1,0 +1,52 @@
+<section>
+  <app-spinner [isDataLoaded]=isDataLoaded></app-spinner>
+  <app-api-error [hasAPIFailed]=hasAPIFailed></app-api-error>
+
+  <div class="row margin-30px-tb post-content">
+    <div class="col-12 text-align-center post-title">
+      <h1>{{(post?.title|titlecase) || 'Loading . . .'}}</h1>
+      <div class="user-details">
+        <div class="user-avatar-image"></div>
+        <div class="user-name-follow">
+          <span class="user-name">John Doe</span>
+          <button mat-button (click)="follow(post.userId)">FOLLOW</button>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row margin-30px-tb p-0 padding-30px justify-content-center">
+      <img src="https://source.unsplash.com/random/1600x900" draggable="false" class="img-fluid post-image"
+        alt="post-image">
+    </div>
+    <div class="post-body text-justified">{{post?.body}}</div>
+  </div>
+  <div class="row comments-icon-wrapper">
+    <div class="likes">
+      <mat-icon (click)="like()">favorite_border</mat-icon>
+      <span>{{commentsCount}}</span>
+    </div>
+    <div class="comments">
+      <mat-icon (click)="comment()">comment</mat-icon>
+      <span>{{commentsCount}}</span>
+    </div>
+  </div>
+  <div class="row comments-content" *ngIf="commentsCount">
+    <h6>Comments</h6>
+    <cdk-virtual-scroll-viewport itemSize="10" class="h-550 mt-3">
+      <div class="row width-50" *cdkVirtualFor="let comment of comments">
+        <div class="commenting-user-details">
+          <div class="commenting-user-avatar-image"></div>
+          <div class="comment-body">
+            <span class="commenting-user-name"
+              id="{{comment?.id}}">{{(comment?.name|titlecase)||'Loading . . .'}}</span>
+            <p class="m-0 text-justified small">{{comment.body||'Loading . . .'}}</p>
+            <span class="small mt-1"><a class="reply-mail" href="mailto:{{comment.email}}">Reply</a></span>
+          </div>
+        </div>
+
+      </div>
+    </cdk-virtual-scroll-viewport>
+
+  </div>
+</section>

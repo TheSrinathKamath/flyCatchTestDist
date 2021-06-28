@@ -1,0 +1,121 @@
+@import '../../customStyles/palette.scss';
+@import '../../customStyles/mixin.scss';
+
+.h-550 {
+  height: 550px;
+}
+
+.margin-30px-tb {
+  margin: 30px auto;
+}
+
+.padding-30px {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.user-details {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+
+  .user-avatar-image {
+    background-image: url('https://i.pravatar.cc/64');
+    background-size: cover;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 10px 0;
+  }
+
+  .user-name-follow {
+    margin: auto;
+    padding-left: 15px;
+
+    .user-name {
+      margin: auto;
+      font-weight: 600;
+      color: $sub-text-color;
+    }
+
+    button {
+      margin-left: 15px;
+      border: 1px solid lightgray;
+    }
+  }
+
+
+}
+
+.post-image {
+  max-height: 640px;
+  object-fit: cover;
+
+  @include for-phone-only {
+    height: unset;
+  }
+
+  @include for-tablet-portrait-up {
+    height: unset;
+  }
+}
+
+.comments-icon-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+}
+
+.likes,
+.comments {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+
+  span {
+    padding: 0 5px;
+  }
+}
+
+.comments-content {
+  background: #f7f7f7;
+  padding: 50px;
+  margin: 30px 0;
+
+  .commenting-user-details {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    margin-bottom: 15px;
+
+    .commenting-user-avatar-image {
+      background-image: url('https://i.pravatar.cc/64');
+      background-size: cover;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 10px 0;
+    }
+
+    .comment-body {
+      margin: auto;
+      padding-left: 15px;
+
+      .commenting-user-name {
+        margin: auto;
+        font-weight: 600;
+        color: $sub-text-color;
+      }
+    }
+  }
+}
+
+.reply-mail {
+  text-decoration: none;
+  color: darkgray;
+
+  &:hover {
+    color: darkslategray;
+  }
+}
