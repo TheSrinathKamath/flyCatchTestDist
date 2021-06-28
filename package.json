@@ -10,6 +10,9 @@
   },
   "private": true,
   "dependencies": {
+    "typescript": "~4.3.2",
+    "@angular/cli": "~12.1.0",
+    "@angular/compiler-cli": "~12.1.0",
     "@angular/animations": "~12.1.0",
     "@angular/cdk": "^12.1.0",
     "@angular/common": "~12.1.0",
